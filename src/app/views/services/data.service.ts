@@ -1,11 +1,15 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environment/environment';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
+
+
 
   token:any=localStorage.getItem('token')
 
@@ -15,23 +19,24 @@ export class DataService {
 
 
 getAllstudents(){
-  return this.http.get('http://127.0.0.1:8080/students/list')
+  return this.http.get(`${environment.urlBackend}`+'students/list')
 }
 
+
 addstudent(profil:any){
-  return this.http.post('http://127.0.0.1:8080/students/add-student', profil)
+  return this.http.post(`${environment.urlBackend}`+'students/add-student', profil)
 }
 
 deletestudent(id:any){
-  return this.http.delete ('http://127.0.0.1:8080/students/delete/'+ id)
+  return this.http.delete (`${environment.urlBackend}`+'students/delete/'+ id)
 
 }updatestudent(id:any, profil:any){
-  return this.http.patch ('http://localhost:8080/students/update/'+ id, profil)
+  return this.http.patch (`${environment.urlBackend}`+'students/update/'+ id, profil)
 
 }
 
 getOnestudent(id:any){
-  return this.http.get ('http://127.0.0.1:8080/students/'+ id)
+  return this.http.get (`${environment.urlBackend}`+'students/'+ id)
 
 }
 }

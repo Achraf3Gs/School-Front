@@ -1,4 +1,9 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.example.com',
-};
+  urlBackend: 'http://127.0.0.1:8080/',
+
+
+
+  secret:"achrafou",
+  client:"123456789"
+}

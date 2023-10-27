@@ -3,18 +3,25 @@
  <div class="w3-container" id="contact" style="margin-top:75px">
   <h1 class="w3-xxxlarge w3-text-red"><b>Register</b></h1>
   <hr style="width:50px;border:5px solid red" class="w3-round">
-   <form>
+  <form class="user"#f='ngForm'(ngSubmit)="registeruser(f)">
     <div class="w3-section">
-      <label>Username</label>
-      <input class="w3-input w3-border" type="text" name="username" required>
+      <label>Firstname</label>
+      <input class="w3-input w3-border" type="text" name="firstname" ngModel #firstname="ngModel" required>
+    </div>
+    <div class="w3-section">
+    <label>lastname</label>
+      <input class="w3-input w3-border" type="text" name="lastname" ngModel #lastname="ngModel" required>
     </div>
     <div class="w3-section">
       <label>Email</label>
-      <input class="w3-input w3-border" type="email" name="email" required>
+      <input class="w3-input w3-border" type="email" name="email" ngModel #email="ngModel"required>
+    </div>
+    <div class="alert alert-danger" *ngIf='messageAuthError'>
+      {{messageAuthError}}
     </div>
     <div class="w3-section">
       <label>Password</label>
-      <input class="w3-input w3-border" type="password" name="password" required>
+      <input class="w3-input w3-border" type="password" name="password" ngModel #password="ngModel"required>
     </div>
     <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Register</button>
   </form>

@@ -6,8 +6,10 @@
   </div>
   <div class="w3-bar-block">
     <a routerLink="/" class="w3-bar-item w3-button w3-hover-white">Home</a>
-    <a routerLink="/loginuser" class="w3-bar-item w3-button w3-hover-white">loginuser</a>
-    <a routerLink="/register" class="w3-bar-item w3-button w3-hover-white">register</a>
+    <a routerLink="/loginuser" class="w3-bar-item w3-button w3-hover-white" *ngIf="!loginService.loggedIn()" routerLinkActive="active">Loginuser</a>
+    <a routerLink="/register" class="w3-bar-item w3-button w3-hover-white"*ngIf="!loginService.loggedIn()" routerLinkActive="active">Register</a>
+    <a routerLink="/student" class="w3-bar-item w3-button w3-hover-white"*ngIf="loginService.loggedIn()" routerLinkActive="active">Students</a>
+    <a (click)="logout()" class="w3-bar-item w3-button w3-hover-white"*ngIf="loginService.loggedIn()" routerLinkActive="active">Logout</a>
   </div>
 </nav>
 
